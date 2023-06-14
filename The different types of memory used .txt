@@ -1,0 +1,44 @@
+The different types of memory used in a program are:
+Stack memory: Used for local variables and function calls. Managed by the system automatically.
+Heap memory: Used for dynamic memory allocation. Managed manually by the programmer.
+Global memory: Used for global variables. Managed by the system automatically.
+Static memory allocation is a technique where memory is allocated for variables during compilation time, while dynamic memory allocation is a technique where memory is allocated during runtime.
+
+The main difference between malloc() and calloc() is in the way they allocate memory. malloc() only allocates memory and does not initialize it, while calloc() allocates memory and initializes it to zero.
+
+It depends on the specific use case. If initialization of the allocated memory is not necessary, malloc() might be faster. However, if initialization is needed, calloc() is better suited for the job.
+
+The size of an allocated portion of memory can be determined by calling the sizeof() operator on the allocated variable or by calling the malloc_usable_size() function on the allocated memory block.
+
+The syntaxes for malloc(), calloc(), realloc(), and free() are:
+
+malloc(): void *malloc(size_t size);
+calloc(): void *calloc(size_t num, size_t size);
+realloc(): void *realloc(void *ptr, size_t size);
+free(): void free(void *ptr);
+The required library files are <stdlib.h> for malloc(), calloc(), realloc(), and free(), and <malloc.h> for malloc_usable_size().
+
+The header file that should be included to use functions like malloc() and calloc() is <stdlib.h>.
+
+The return value of malloc(0) is implementation-defined. It might return NULL, or it might return a unique pointer value that can be used later with realloc() and free().
+
+The return type of malloc() and calloc() is a void pointer (void*), which needs to be casted to the appropriate type before use. For example, if we want to allocate memory for an integer variable, we can use:
+
+int ptr = (int)malloc(sizeof(int));
+
+The purpose of realloc() is to change the size of a previously allocated memory block. It can either expand or shrink the memory block, and it can also move the block to a new location if necessary.
+
+Garbage collection is an automatic memory management technique where the system automatically deallocates memory that is no longer in use. It is important because it prevents memory leaks and ensures that the program uses memory efficiently.
+
+If memory is not deallocated after it has been allocated, it will result in a memory leak. This means that the program will use more and more memory as it runs, eventually causing the system to run out of memory and crash.
+
+Stack allocation is more efficient than heap allocation because it is managed by the system automatically, and the memory access is faster. Heap allocation, on the other hand, is managed manually and requires more time for memory allocation and deallocation.
+
+The execution speed when using dynamic memory allocation vs. static memory allocation depends on the specific use case. In general, static memory allocation is faster because it is done during compilation time, while dynamic memory allocation is done during runtime, which adds overhead.
+
+The problem with using dynamic memory allocation is that it can lead to memory leaks if not managed properly. It can also cause fragmentation, where there are small unused blocks of memory scattered throughout the heap, which can lead to inefficient memory usage. Additionally, it can also lead to security vulnerabilities if not used carefully, such as buffer overflow attacks.
+
+
+
+
+
